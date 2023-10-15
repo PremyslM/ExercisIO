@@ -5,7 +5,7 @@
 //  Created by Přemysl Mikulenka on 15.10.2023.
 //
 
-import Foundation
+import SwiftUI
 
 
 class ExerciseBundleContainerViewModel: ObservableObject {
@@ -14,6 +14,7 @@ class ExerciseBundleContainerViewModel: ObservableObject {
             print("DEBUG: Is Active [\(isActive)]")
         }
     }
+    @Published var activeColor: Color = .black
     
     private var exerciseBundle: ExerciseBundle
     
@@ -45,5 +46,6 @@ class ExerciseBundleContainerViewModel: ObservableObject {
     
     func setActive() {
         self.isActive = true
+        self.activeColor = isActive ? Color(UIColor.systemGreen) : Color(.black)
     }
 }

@@ -17,7 +17,7 @@ struct MainMenuView: View {
             
             VStack(spacing: 15) {
                 ForEach(viewModel.bundles) { bundle in
-                    ExerciseBundleContainerView(exerciseBundle: bundle, desctination: ExerciseBundleDetailView(exerciseBundle: bundle))
+                    ExerciseBundleContainerView(exerciseBundle: bundle)
                 }
                 
                 Spacer()

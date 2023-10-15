@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ExerciseBundleDetailView: View {
     
-    private var viewModel: ExerciseBundleDetailViewModel
-    
+    @ObservedObject var viewModel: ExerciseBundleDetailViewModel
+                
     init(exerciseBundle: ExerciseBundle) {
         self.viewModel = ExerciseBundleDetailViewModel(exerciseBundle)
     }
@@ -25,8 +25,8 @@ struct ExerciseBundleDetailView: View {
                 Text(viewModel.exerciseCount) // Count
                 
                 Image(systemName: "smallcircle.filled.circle.fill") // isActive UIImage TODO: Future UI element that'll shows if current bundle is active (if user is doing it)
-                    .foregroundStyle(Color(UIColor.systemRed)) // SystemRed (active) / SystemGreen (non-active)
-                    .shadow(color: .green, radius: 9)
+                    .foregroundStyle(viewModel.activeColor) // SystemRed (active) / SystemGreen (non-active)
+                    .shadow(color: viewModel.activeColor, radius: 9)
             }
             .padding()
             .background(Color.black)

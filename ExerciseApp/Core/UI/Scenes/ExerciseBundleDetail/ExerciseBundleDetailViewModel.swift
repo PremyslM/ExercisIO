@@ -5,12 +5,14 @@
 //  Created by Přemysl Mikulenka on 15.10.2023.
 //
 
-import Foundation
+import SwiftUI
 
 
-class ExerciseBundleDetailViewModel {
+class ExerciseBundleDetailViewModel: ObservableObject {
     
     var exerciseBundle: ExerciseBundle
+    @Published var isActive: Bool = false
+    @Published var activeColor: Color = Color(UIColor.systemRed)
     
     var title: String {
         let title = exerciseBundle.title
@@ -36,5 +38,10 @@ class ExerciseBundleDetailViewModel {
     
     init(_ exerciseBundle: ExerciseBundle) {
         self.exerciseBundle = exerciseBundle
+    }
+    
+    func setActive() {
+        self.isActive = true
+        self.activeColor = isActive ? Color(UIColor.systemGreen) : Color(UIColor.systemRed)
     }
 }

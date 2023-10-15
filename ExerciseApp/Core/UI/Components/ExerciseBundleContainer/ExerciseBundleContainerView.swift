@@ -13,9 +13,9 @@ struct ExerciseBundleContainerView: View {
     @ObservedObject private var viewModel: ExerciseBundleContainerViewModel
     private var destination: ExerciseBundleDetailView
     
-    init(exerciseBundle bundle: ExerciseBundle, desctination: ExerciseBundleDetailView) {
+    init(exerciseBundle bundle: ExerciseBundle) {
         self.viewModel = ExerciseBundleContainerViewModel(bundle)
-        self.destination = desctination
+        self.destination = ExerciseBundleDetailView(exerciseBundle: bundle)
     }
     
     var body: some View {
@@ -50,11 +50,12 @@ struct ExerciseBundleContainerView: View {
                 .onLongPressGesture {
                     withAnimation {
                         viewModel.setActive()
+                        destination.viewModel.setActive()
                     }
                 }
             }
             .frame(height: 100)
-            .background(viewModel.isActive ? .green : .black)
+            .background(viewModel.activeColor)
             .foregroundStyle(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
