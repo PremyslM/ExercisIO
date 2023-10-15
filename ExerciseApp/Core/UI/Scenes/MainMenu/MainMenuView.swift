@@ -26,6 +26,7 @@ struct MainMenuView: View {
             }
             .padding()
         }
+        .navigationTitle("worbit")
     }
 }
 
