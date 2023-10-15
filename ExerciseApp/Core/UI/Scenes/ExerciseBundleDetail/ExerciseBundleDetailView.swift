@@ -32,14 +32,31 @@ struct ExerciseBundleDetailView: View {
             .background(Color.black)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .foregroundStyle(Color.white)
-            //.padding()
             
-            List {
-                ForEach(viewModel.exerciseBundle.exercises) { exercise in
-                    Text(exercise.title)
+            HStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    ForEach(viewModel.exerciseBundle.exercises) { exercise in
+                        HStack {
+                            Text(exercise.title)
+                                .fontWeight(.semibold)
+                            Text("difficulty ") + Text("\(exercise.difficulty)").fontWeight(.semibold).foregroundStyle(Color(UIColor.systemBlue))
+                            
+                            Spacer()
+                            
+                            Text("\(Int(exercise.duration)) min")
+                                .foregroundStyle(Color(UIColor.systemGreen))
+                        }
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.black)
+                .foregroundStyle(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .padding()
             }
-            .padding()
+            
+            Spacer()
         }
     }
 }
