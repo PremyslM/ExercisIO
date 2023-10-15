@@ -20,10 +20,15 @@ struct ExerciseBundleDetailView: View {
         VStack {
             HStack {
                 Text(viewModel.title) // Title
+                    .fontWeight(.bold)
                 Text(viewModel.duration) // Duration
                 Text(viewModel.exerciseCount) // Count
+                
+                Image(systemName: "smallcircle.filled.circle.fill") // isActive UIImage TODO: Future UI element that'll shows if current bundle is active (if user is doing it)
+                    .foregroundStyle(Color(UIColor.systemGreen))
+                    .shadow(color: .green, radius: 9)
             }
-            .padding()
+            .padding(10)
             .background(Color.black)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .foregroundStyle(Color.white)
