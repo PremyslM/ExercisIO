@@ -14,9 +14,9 @@ struct MainMenuView: View {
         ZStack {
             List {
                 ForEach(viewModel.bundles) { bundle in
-                    NavigationLink(destination: ExerciseBundleDetailView(exerciseList: bundle.exercises)) {
+                    NavigationLink(destination: ExerciseBundleDetailView(exerciseBundle: bundle)) {
                         ExerciseBundleContainerView(exerciseBundle: bundle)
-                    }                   
+                    }
                 }
             }
         }

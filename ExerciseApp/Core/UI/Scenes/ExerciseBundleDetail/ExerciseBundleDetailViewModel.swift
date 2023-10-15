@@ -10,9 +10,9 @@ import Foundation
 
 class ExerciseBundleDetailViewModel {
     
-    var exerciseList: [Exercise]
+    var exerciseBundle: ExerciseBundle
     
-    init(_ exerciseList: [Exercise]) {
-        self.exerciseList = exerciseList
+    init(_ exerciseBundle: ExerciseBundle) {
+        self.exerciseBundle = exerciseBundle
     }
 }

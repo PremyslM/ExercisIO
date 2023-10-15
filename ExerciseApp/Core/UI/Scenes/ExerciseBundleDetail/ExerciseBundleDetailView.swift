@@ -12,15 +12,15 @@ struct ExerciseBundleDetailView: View {
     
     private var viewModel: ExerciseBundleDetailViewModel
     
-    init(exerciseList: [Exercise]) {
-        self.viewModel = ExerciseBundleDetailViewModel(exerciseList)
+    init(exerciseBundle: ExerciseBundle) {
+        self.viewModel = ExerciseBundleDetailViewModel(exerciseBundle)
     }
     
     var body: some View {
         ZStack {
             VStack {
                 List {
-                    ForEach(viewModel.exerciseList) { exercise in
+                    ForEach(viewModel.exerciseBundle.exercises) { exercise in
                         Text(exercise.title)
                     }
                 }
@@ -30,5 +30,5 @@ struct ExerciseBundleDetailView: View {
 }
 
 #Preview {
-    ExerciseBundleDetailView(exerciseList: TestData.exerciseBundles[0].exercises)
+    ExerciseBundleDetailView(exerciseBundle: TestData.exerciseBundles[0])
 }
