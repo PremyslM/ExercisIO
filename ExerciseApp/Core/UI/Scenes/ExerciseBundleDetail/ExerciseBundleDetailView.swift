@@ -17,12 +17,21 @@ struct ExerciseBundleDetailView: View {
     }
     
     var body: some View {
-        ZStack {
-            VStack {
-                List {
-                    ForEach(viewModel.exerciseBundle.exercises) { exercise in
-                        Text(exercise.title)
-                    }
+        VStack {
+            HStack {
+                Text(viewModel.title) // Title
+                Text(viewModel.duration) // Duration
+                Text(viewModel.exerciseCount) // Count
+            }
+            .padding()
+            .background(Color.black)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .foregroundStyle(Color.white)
+            .padding()
+            
+            List {
+                ForEach(viewModel.exerciseBundle.exercises) { exercise in
+                    Text(exercise.title)
                 }
             }
         }
