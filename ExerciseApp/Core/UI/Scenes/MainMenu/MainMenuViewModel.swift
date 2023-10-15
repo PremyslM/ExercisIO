@@ -11,10 +11,10 @@ import Foundation
 class MainMenuViewModel: ObservableObject {
     @Published var bundles: [ExerciseBundle] = []
     
-    private let dataService = DataService()
+    private let dataManager = DataManager()
     
     init() {
-        dataService.fetchBundles { result in
+        dataManager.fetchBundles { result in
             self.bundles = result
         }
     }

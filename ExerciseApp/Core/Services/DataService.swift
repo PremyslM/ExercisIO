@@ -8,9 +8,5 @@
 import Foundation
 
 class DataService {
-    
-    func fetchBundles(completion: @escaping ([ExerciseBundle]) -> Void) {
-        let data = TestData.exerciseBundles
-        completion(data)
-    }
+        
 }

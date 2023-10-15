@@ -14,7 +14,7 @@ struct MainMenuView: View {
         ZStack {
             List {
                 ForEach(viewModel.bundles) { bundle in
-                    Text(bundle.title)
+                    ExerciseBundleContainerView(exerciseBundle: bundle)
                 }
             }
         }

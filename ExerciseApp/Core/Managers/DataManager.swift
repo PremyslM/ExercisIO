@@ -9,5 +9,8 @@ import Foundation
 
 
 class DataManager {
-    
+    func fetchBundles(completion: @escaping ([ExerciseBundle]) -> Void) {
+        let data = TestData.exerciseBundles
+        completion(data)
+    }
 }
