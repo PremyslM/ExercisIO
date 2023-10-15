@@ -8,7 +8,13 @@
 import Foundation
 
 
-class ExerciseBundleContainerViewModel {
+class ExerciseBundleContainerViewModel: ObservableObject {
+    @Published private(set) var isActive: Bool = false {
+        didSet {
+            print("DEBUG: Is Active [\(isActive)]")
+        }
+    }
+    
     private var exerciseBundle: ExerciseBundle
     
     var title: String {
@@ -35,5 +41,9 @@ class ExerciseBundleContainerViewModel {
     
     init(_ exerciseBundle: ExerciseBundle) {
         self.exerciseBundle = exerciseBundle
+    }
+    
+    func setActive() {
+        self.isActive = true
     }
 }

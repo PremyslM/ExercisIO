@@ -10,33 +10,55 @@ import SwiftUI
 
 struct ExerciseBundleContainerView: View {
     
-    private var viewModel: ExerciseBundleContainerViewModel
+    @ObservedObject private var viewModel: ExerciseBundleContainerViewModel
+    private var destination: ExerciseBundleDetailView
     
-    init(exerciseBundle bundle: ExerciseBundle) {
+    init(exerciseBundle bundle: ExerciseBundle, desctination: ExerciseBundleDetailView) {
         self.viewModel = ExerciseBundleContainerViewModel(bundle)
+        self.destination = desctination
     }
     
     var body: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                Text(viewModel.title) // Title
-                    .font(.title2)
-                Text(viewModel.exerciseCount) // Exercises Count
-                    .font(.system(size: 16, weight: .light))
+        NavigationLink {
+            destination
+        } label: {
+            HStack {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text(viewModel.title) // Title
+                            .font(.title2)
+                        Text(viewModel.exerciseCount) // Exercises Count
+                            .font(.system(size: 16, weight: .light))
+                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Text(viewModel.duration) // Duration
+                        Spacer()
+                    }
+                }
+                .padding()
+                                    
+                
+                ZStack {
+                    Color.gray.opacity(0.2)
+                    Image(systemName: "hand.tap.fill")
+                        .font(.system(size: 20))
+                }
+                .frame(width: 75)
+                .onLongPressGesture {
+                    withAnimation {
+                        viewModel.setActive()
+                    }
+                }
             }
-            
-            Spacer()
-            
-            Text(viewModel.duration) // Duration
+            .frame(height: 100)
+            .background(viewModel.isActive ? .green : .black)
+            .foregroundStyle(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
-        .padding()
-        .background(.black)
-        .foregroundStyle(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 16)) 
+
     }
     
-}
-
-#Preview {
-    ExerciseBundleContainerView(exerciseBundle: TestData.exerciseBundles[0])
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-class MainMenuViewModel: ObservableObject {
+class MainMenuViewModel: ObservableObject {    
     @Published var bundles: [ExerciseBundle] = []
     
     private let dataManager = DataManager()
