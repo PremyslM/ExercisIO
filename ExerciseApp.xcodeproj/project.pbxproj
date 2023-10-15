@@ -19,6 +19,8 @@
 		78AB243B2ADC0EEA0092504B /* ExerciseBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB243A2ADC0EEA0092504B /* ExerciseBundle.swift */; };
 		78AB24402ADC31670092504B /* ExerciseBundleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB243F2ADC31670092504B /* ExerciseBundleContainerView.swift */; };
 		78AB24422ADC32520092504B /* ExerciseBundleContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24412ADC32520092504B /* ExerciseBundleContainerViewModel.swift */; };
+		78AB24452ADC3A310092504B /* ExerciseBundleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24442ADC3A310092504B /* ExerciseBundleDetailView.swift */; };
+		78AB24472ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24462ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		78AB243A2ADC0EEA0092504B /* ExerciseBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundle.swift; sourceTree = "<group>"; };
 		78AB243F2ADC31670092504B /* ExerciseBundleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleContainerView.swift; sourceTree = "<group>"; };
 		78AB24412ADC32520092504B /* ExerciseBundleContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleContainerViewModel.swift; sourceTree = "<group>"; };
+		78AB24442ADC3A310092504B /* ExerciseBundleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleDetailView.swift; sourceTree = "<group>"; };
+		78AB24462ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 		78AB243D2ADC31280092504B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				78AB24432ADC3A1D0092504B /* ExerciseBundleDetail */,
 				78AB242E2ADC0DBD0092504B /* MainMenu */,
 			);
 			path = Scenes;
@@ -193,6 +198,15 @@
 				78AB24412ADC32520092504B /* ExerciseBundleContainerViewModel.swift */,
 			);
 			path = ExerciseBundleContainer;
+			sourceTree = "<group>";
+		};
+		78AB24432ADC3A1D0092504B /* ExerciseBundleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				78AB24442ADC3A310092504B /* ExerciseBundleDetailView.swift */,
+				78AB24462ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift */,
+			);
+			path = ExerciseBundleDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,10 +285,12 @@
 				78AB242A2ADC0D2F0092504B /* DataService.swift in Sources */,
 				78AB24402ADC31670092504B /* ExerciseBundleContainerView.swift in Sources */,
 				78AB24362ADC0E920092504B /* TestData.swift in Sources */,
+				78AB24452ADC3A310092504B /* ExerciseBundleDetailView.swift in Sources */,
 				78AB24182ADC0B1B0092504B /* MainMenuView.swift in Sources */,
 				78AB24392ADC0EAD0092504B /* Exercise.swift in Sources */,
 				78AB24422ADC32520092504B /* ExerciseBundleContainerViewModel.swift in Sources */,
 				78AB24162ADC0B1B0092504B /* ExerciseAppApp.swift in Sources */,
+				78AB24472ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

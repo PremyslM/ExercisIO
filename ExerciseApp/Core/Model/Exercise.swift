@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Exercise {
+struct Exercise: Identifiable {
     var id = UUID()
     let title: String
     let duration: Double
