@@ -12,13 +12,19 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
-            List {
+            Color(UIColor.systemGray4)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 15) {
                 ForEach(viewModel.bundles) { bundle in
                     NavigationLink(destination: ExerciseBundleDetailView(exerciseBundle: bundle)) {
                         ExerciseBundleContainerView(exerciseBundle: bundle)
                     }
                 }
+                
+                Spacer()
             }
+            .padding()
         }
     }
 }

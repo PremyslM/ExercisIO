@@ -58,6 +58,7 @@ struct ExerciseBundleDetailView: View {
             
             Spacer()
         }
+        .background(Color(UIColor.systemGray4))
     }
 }
 

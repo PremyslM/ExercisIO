@@ -17,27 +17,24 @@ struct ExerciseBundleContainerView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.black
-            
-            HStack(alignment: .top) {
-                VStack(alignment: .leading) {
-                    Text(viewModel.title) // Title
-                        .font(.title2)
-                    Text(viewModel.exerciseCount) // Exercises Count
-                        .font(.system(size: 16, weight: .light))
-                }
-                
-                Spacer()
-                                    
-                Text(viewModel.duration) // Duration
+        HStack(alignment: .top) {
+            VStack(alignment: .leading) {
+                Text(viewModel.title) // Title
+                    .font(.title2)
+                Text(viewModel.exerciseCount) // Exercises Count
+                    .font(.system(size: 16, weight: .light))
             }
-            .foregroundStyle(Color.white)
-            .padding()
+            
+            Spacer()
+            
+            Text(viewModel.duration) // Duration
         }
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .frame(maxHeight: 200)
+        .padding()
+        .background(.black)
+        .foregroundStyle(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 16)) 
     }
+    
 }
 
 #Preview {
