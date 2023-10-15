@@ -11,7 +11,9 @@ import SwiftUI
 struct ExerciseAppApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
+            NavigationView(content: {
+                MainMenuView()
+            })
         }
     }
 }
