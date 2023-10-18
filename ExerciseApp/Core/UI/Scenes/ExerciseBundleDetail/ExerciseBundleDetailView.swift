@@ -12,7 +12,7 @@ struct ExerciseBundleDetailView: View {
     
     @ObservedObject var viewModel: ExerciseBundleDetailViewModel
                 
-    init(exerciseBundle: ExerciseBundle) {
+    init(exerciseBundle: ExerciseBundle) {  
         self.viewModel = ExerciseBundleDetailViewModel(exerciseBundle)
     }
     
