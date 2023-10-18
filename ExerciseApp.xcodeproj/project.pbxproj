@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7848F8D82AE06B31007D3B5B /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848F8D72AE06B31007D3B5B /* TimerService.swift */; };
+		7848F8DA2AE06C46007D3B5B /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848F8D92AE06C46007D3B5B /* TimerManager.swift */; };
 		78AB24162ADC0B1B0092504B /* ExerciseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24152ADC0B1B0092504B /* ExerciseAppApp.swift */; };
 		78AB24182ADC0B1B0092504B /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24172ADC0B1B0092504B /* MainMenuView.swift */; };
 		78AB241A2ADC0B1C0092504B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AB24192ADC0B1C0092504B /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7848F8D72AE06B31007D3B5B /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		7848F8D92AE06C46007D3B5B /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		78AB24122ADC0B1B0092504B /* ExerciseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AB24152ADC0B1B0092504B /* ExerciseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAppApp.swift; sourceTree = "<group>"; };
 		78AB24172ADC0B1B0092504B /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			children = (
 				78AB24292ADC0D2F0092504B /* DataService.swift */,
 				78AB24352ADC0E920092504B /* TestData.swift */,
+				7848F8D72AE06B31007D3B5B /* TimerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				78AB24332ADC0E3F0092504B /* DataManager.swift */,
+				7848F8D92AE06C46007D3B5B /* TimerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 				78AB243B2ADC0EEA0092504B /* ExerciseBundle.swift in Sources */,
 				78AB24342ADC0E3F0092504B /* DataManager.swift in Sources */,
 				78AB242A2ADC0D2F0092504B /* DataService.swift in Sources */,
+				7848F8D82AE06B31007D3B5B /* TimerService.swift in Sources */,
+				7848F8DA2AE06C46007D3B5B /* TimerManager.swift in Sources */,
 				78AB24402ADC31670092504B /* ExerciseBundleContainerView.swift in Sources */,
 				78AB24362ADC0E920092504B /* TestData.swift in Sources */,
 				78AB24452ADC3A310092504B /* ExerciseBundleDetailView.swift in Sources */,
