@@ -21,7 +21,11 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         }
     }
     
-    private var exerciseBundle: ExerciseBundle
+    private var exerciseBundle: ExerciseBundle {
+        didSet {
+            self.countdownValue = self.duration
+        }
+    }
     private var timerManager: TimerManager?
     
     var title: String {
@@ -29,7 +33,7 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         return title
     }
     
-    var duration: String {
+    var formatedDuration: String {
         var durationSum: Double = 0.0
         
         let exercises = exerciseBundle.exercises
@@ -41,14 +45,26 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         return "\(durationSum)min"
     }
     
+    var duration: Double {
+        var durationSum: Double = 0.0
+        
+        let exercises = exerciseBundle.exercises
+        
+        for exercise in exercises {
+            durationSum += exercise.duration
+        }
+        
+        return durationSum
+    }
+    
     var exerciseCount: String {
         let exercises = exerciseBundle.exercises
         return "\(exercises.count) exercises"
     }
-    
+
     init(_ exerciseBundle: ExerciseBundle) {
         self.exerciseBundle = exerciseBundle
-        self.countdownValue = Double(exerciseBundle.exercises.count)
+        self.countdownValue = exerciseBundle.totalDuration
         self.timerManager = TimerManager(onUpdateTimer: {
             self.countdownValue -= 1
             print(self.countdownValue)

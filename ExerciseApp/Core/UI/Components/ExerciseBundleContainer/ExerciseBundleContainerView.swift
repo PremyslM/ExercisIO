@@ -34,7 +34,7 @@ struct ExerciseBundleContainerView: View {
                     Spacer()
                     
                     VStack {
-                        Text(viewModel.duration) // Duration
+                        Text(viewModel.formatedDuration) // Duration
                         Spacer()
                     }
                 }
