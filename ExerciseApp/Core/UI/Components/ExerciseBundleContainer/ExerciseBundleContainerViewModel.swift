@@ -15,7 +15,7 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         }
     }
     @Published var activeColor: Color = .black
-    @Published var countdownValue: Double = 10 { // TODO: Harcoded Value -> This'll be taken from stored models (Exercise models)
+    @Published var countdownValue: Double { // TODO: Harcoded Value -> This'll be taken from stored models (Exercise models)
         didSet {
             self.checkTimer(countdownValue)
         }
@@ -48,8 +48,9 @@ class ExerciseBundleContainerViewModel: ObservableObject {
     
     init(_ exerciseBundle: ExerciseBundle) {
         self.exerciseBundle = exerciseBundle
+        self.countdownValue = Double(exerciseBundle.exercises.count)
         self.timerManager = TimerManager(onUpdateTimer: {
-            self.countdownValue -= 2
+            self.countdownValue -= 1
             print(self.countdownValue)
         })
     }
