@@ -11,16 +11,15 @@ import SwiftUI
 struct ExerciseBundleContainerView: View {
     
     @ObservedObject private var viewModel: ExerciseBundleContainerViewModel
-    private var destination: ExerciseBundleDetailView
     
     init(exerciseBundle bundle: ExerciseBundle) {
-        self.viewModel = ExerciseBundleContainerViewModel(bundle)
-        self.destination = ExerciseBundleDetailView(exerciseBundle: bundle)
+        let destination = ExerciseBundleDetailView(exerciseBundle: bundle)
+        self.viewModel = ExerciseBundleContainerViewModel(bundle, destination: destination)
     }
     
     var body: some View {
         NavigationLink {
-            destination
+            viewModel.destination
         } label: {
             HStack {
                 HStack(alignment: .top) {
@@ -34,7 +33,7 @@ struct ExerciseBundleContainerView: View {
                     Spacer()
                     
                     VStack {
-                        Text(viewModel.formatedDuration) // Duration
+                        Text("\(Int(viewModel.countdownValue))s") // Duration
                         Spacer()
                     }
                 }
@@ -49,8 +48,7 @@ struct ExerciseBundleContainerView: View {
                 .frame(width: 75)
                 .onLongPressGesture {
                     withAnimation {
-                        viewModel.setActive()
-                        destination.viewModel.setActive()
+                        viewModel.exerciseLongPressed()
                     }
                 }
             }

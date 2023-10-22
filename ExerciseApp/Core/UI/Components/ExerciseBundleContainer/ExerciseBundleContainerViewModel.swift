@@ -21,13 +21,9 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         }
     }
     
-    private var exerciseBundle: ExerciseBundle {
-        didSet {
-            self.countdownValue = self.duration
-        }
-    }
-    private var timerManager: TimerManager?
-    
+    // MARK: - Public Attributes
+    var destination: ExerciseBundleDetailView
+        
     var title: String {
         let title = exerciseBundle.title
         return title
@@ -61,8 +57,18 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         let exercises = exerciseBundle.exercises
         return "\(exercises.count) exercises"
     }
+    
+    // MARK: - Private Attributes
+    private var exerciseBundle: ExerciseBundle {
+        didSet {
+            self.countdownValue = self.duration
+        }
+    }
+    private var timerManager: TimerManager?
+    
 
-    init(_ exerciseBundle: ExerciseBundle) {
+    init(_ exerciseBundle: ExerciseBundle, destination: ExerciseBundleDetailView) {
+        self.destination = destination
         self.exerciseBundle = exerciseBundle
         self.countdownValue = exerciseBundle.totalDuration
         self.timerManager = TimerManager(onUpdateTimer: {
@@ -71,7 +77,16 @@ class ExerciseBundleContainerViewModel: ObservableObject {
         })
     }
     
-    func setActive() {
+    // MARK: - Public Methods
+    func exerciseLongPressed() {
+        if !isActive {
+            self.setActive()
+            self.destination.viewModel.setActive()
+        }
+    }
+    
+    // MARK: - Private Methods
+    private func setActive() {
         self.startTimer()
         self.isActive = true
         self.activeColor = isActive ? Color(UIColor.systemGreen) : Color(.black)
