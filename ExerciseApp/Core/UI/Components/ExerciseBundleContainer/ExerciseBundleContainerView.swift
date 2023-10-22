@@ -57,7 +57,5 @@ struct ExerciseBundleContainerView: View {
             .foregroundStyle(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
-
     }
-    
 }
