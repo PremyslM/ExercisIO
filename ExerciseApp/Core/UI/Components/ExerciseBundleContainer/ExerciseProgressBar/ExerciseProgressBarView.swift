@@ -11,11 +11,10 @@ import SwiftUI
 struct ExerciseProgressBarView: View {
     private var bundle: ExerciseBundle
     
-    @StateObject private var viewModel: ExerciseProgressBarViewModel = ExerciseProgressBarViewModel()
+    @StateObject private var viewModel: ExerciseProgressBarViewModel = ExerciseProgressBarViewModel() //TODO: Bundle is not setted. !!
     
     init(_ bundle: ExerciseBundle) {
         self.bundle = bundle
-        self.viewModel.exerciseBundle = bundle
     }
     
     var body: some View {
@@ -33,7 +32,7 @@ struct ExerciseProgressBarView: View {
                 // Progress Idnicator
                 ZStack(alignment: .leading) {
                     Rectangle()
-                        .frame(width: proxy.size.width * CGFloat(progressValueTest))
+                        .frame(width: proxy.size.width * CGFloat(viewModel.progressFormatedCountDownDuration))
                         .clipShape(
                             RoundedRectangle(cornerRadius: 6)
                         )
@@ -42,7 +41,7 @@ struct ExerciseProgressBarView: View {
                         Spacer()
                         ForEach(0..<10) { num in
                             Rectangle()
-                                .fill(Color(progressValueTest > Float(num) * 0.1 ? .systemGreen : .systemRed))
+                                .fill(Color(viewModel.countdownDuration > Double(num) * 0.1 ? .systemGreen : .systemRed))
                                 .padding(.vertical, 2)
                                 .frame(width: 1)
                             Spacer()
@@ -57,8 +56,4 @@ struct ExerciseProgressBarView: View {
             .frame(height: 20)
         })
     }
-}
-
-#Preview {
-    ExerciseProgressBarView()
 }

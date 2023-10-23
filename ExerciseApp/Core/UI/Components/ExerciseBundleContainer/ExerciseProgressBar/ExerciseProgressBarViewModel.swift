@@ -8,17 +8,8 @@
 import Foundation
 
 class ExerciseProgressBarViewModel: ObservableObject {
-    @Published var countdownDuration: Double = 0 {
-        didSet {
-            setConfig()
-            print("FORM - \(self.progressFormatedCountDownDuration)")
-        }
-    }
-    @Published var progressFormatedCountDownDuration: Double {
-        didSet {
-            print("FORM - \(self.progressFormatedCountDownDuration)")
-        }
-    }
+    @Published var countdownDuration: Double = 0 
+    @Published var progressFormatedCountDownDuration: Double
     
     var exerciseBundle: ExerciseBundle? {
         didSet {

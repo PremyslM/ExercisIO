@@ -9,12 +9,14 @@ import SwiftUI
 
 
 struct ExerciseBundleContainerView: View {
-    
     @ObservedObject private var viewModel: ExerciseBundleContainerViewModel
+    
+    private var exerciseBundle: ExerciseBundle
     
     init(exerciseBundle bundle: ExerciseBundle) {
         let destination = ExerciseBundleDetailView(exerciseBundle: bundle)
         self.viewModel = ExerciseBundleContainerViewModel(bundle, destination: destination)
+        self.exerciseBundle = bundle
     }
     
     var body: some View {
@@ -28,6 +30,7 @@ struct ExerciseBundleContainerView: View {
                             .font(.title2)
                         Text(viewModel.exerciseCount) // Exercises Count
                             .font(.system(size: 16, weight: .light))
+                        ExerciseProgressBarView(exerciseBundle)
                     }
                     
                     Spacer()
