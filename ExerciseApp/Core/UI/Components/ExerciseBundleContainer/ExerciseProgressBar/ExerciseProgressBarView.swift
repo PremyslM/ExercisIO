@@ -9,7 +9,14 @@ import SwiftUI
 
 
 struct ExerciseProgressBarView: View {
-    @State var progressValueTest: Float = 0.7
+    private var bundle: ExerciseBundle
+    
+    @StateObject private var viewModel: ExerciseProgressBarViewModel = ExerciseProgressBarViewModel()
+    
+    init(_ bundle: ExerciseBundle) {
+        self.bundle = bundle
+        self.viewModel.exerciseBundle = bundle
+    }
     
     var body: some View {
         GeometryReader(content: { proxy in
