@@ -22,4 +22,11 @@ struct ExerciseBundle: Identifiable {
         
         return result
     }
+    
+    static let DUMP_EXERCISEBUNDLE: ExerciseBundle = ExerciseBundle(title: "Test Bundle", exercises: [
+        Exercise(title: "Exercise 1", duration: 23, difficulty: 5),
+        Exercise(title: "Exercise 2", duration: 17, difficulty: 2),
+        Exercise(title: "Exercise 3", duration: 43, difficulty: 1),
+        Exercise(title: "Exercise 4", duration: 10, difficulty: 3),
+    ])
 }
