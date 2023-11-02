@@ -9,13 +9,13 @@ import SwiftUI
 
 
 struct ExerciseProgressBarView: View {
-    private var bundle: ExerciseBundle
+    fileprivate var bundle: ExerciseBundle
     
-    @ObservedObject private var viewModel: ExerciseProgressBarViewModel //TODO: Bundle is not setted. !!
+    @StateObject private var viewModel: ExerciseProgressBarViewModel = ExerciseProgressBarViewModel()//TODO: Bundle is not setted. !!
     
     init(_ bundle: ExerciseBundle) {
-        self.bundle = bundle
-        self.viewModel = ExerciseProgressBarViewModel(bundle: bundle)
+        self.bundle = bundle        // TODO: Create a data source protocol that will be called from ExerciseProgressBarViewModel in ExerciseProgressBarView and it'll get (as a parameter): (_ bundle: ExerciseBundle)
+        self.viewModel.dataSource = self
     }
     
     var body: some View {
@@ -57,4 +57,13 @@ struct ExerciseProgressBarView: View {
             .frame(height: 20)
         })
     }
+}
+
+extension ExerciseProgressBarView: ExerciseProgressBarDataSource {
+    
+    func getBundle() -> ExerciseBundle {
+        return self.bundle
+    }
+    
+    
 }

@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol ExerciseProgressBarDataSource {
+    func getBundle() -> ExerciseBundle
+}
+
+
 class ExerciseProgressBarViewModel: ObservableObject {
     @Published var countdownDuration: Double = 0 {
         didSet {
@@ -17,22 +22,27 @@ class ExerciseProgressBarViewModel: ObservableObject {
     
     @Published var progressFormatedCountDownDuration: Double
     
-    var exerciseBundle: ExerciseBundle {
+    var exerciseBundle: ExerciseBundle? {
         didSet {
             print("DEBUG: Bundle set")
-            self.countdownDuration = exerciseBundle.totalDuration
+            self.countdownDuration = exerciseBundle!.totalDuration
+            updateProgressFormatedCountDownDuration() // Calculate it here
             getInfo()
         }
     }
     
-    init(bundle: ExerciseBundle) {
+    var dataSource: ExerciseProgressBarDataSource? {
+        didSet {
+            self.exerciseBundle = dataSource!.getBundle()
+        }
+    }
+    
+    init() {
         self.progressFormatedCountDownDuration = 0 // Initialize it here
-        self.exerciseBundle = bundle
-        updateProgressFormatedCountDownDuration() // Calculate it here
     }
     
     func updateProgressFormatedCountDownDuration() {
-        self.progressFormatedCountDownDuration = (countdownDuration / exerciseBundle.totalDuration) * 100
+        self.progressFormatedCountDownDuration = (countdownDuration / exerciseBundle!.totalDuration) * 100
         print("FORM - \(self.progressFormatedCountDownDuration)")
     }
     
