@@ -25,6 +25,7 @@
 		78AB24422ADC32520092504B /* ExerciseBundleContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24412ADC32520092504B /* ExerciseBundleContainerViewModel.swift */; };
 		78AB24452ADC3A310092504B /* ExerciseBundleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24442ADC3A310092504B /* ExerciseBundleDetailView.swift */; };
 		78AB24472ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AB24462ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift */; };
+		78F728132AF401170072E775 /* ExerciseTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F728122AF401170072E775 /* ExerciseTimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		78AB24412ADC32520092504B /* ExerciseBundleContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleContainerViewModel.swift; sourceTree = "<group>"; };
 		78AB24442ADC3A310092504B /* ExerciseBundleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleDetailView.swift; sourceTree = "<group>"; };
 		78AB24462ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseBundleDetailViewModel.swift; sourceTree = "<group>"; };
+		78F728122AF401170072E775 /* ExerciseTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				78AB243E2ADC31460092504B /* ExerciseBundleContainer */,
+				78F728122AF401170072E775 /* ExerciseTimerViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				78AB24422ADC32520092504B /* ExerciseBundleContainerViewModel.swift in Sources */,
 				78AB24162ADC0B1B0092504B /* ExerciseAppApp.swift in Sources */,
 				78AB24472ADC3AA30092504B /* ExerciseBundleDetailViewModel.swift in Sources */,
+				78F728132AF401170072E775 /* ExerciseTimerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

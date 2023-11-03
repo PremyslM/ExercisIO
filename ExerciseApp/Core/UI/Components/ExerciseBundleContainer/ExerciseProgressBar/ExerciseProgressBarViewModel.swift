@@ -7,37 +7,34 @@
 
 import Foundation
 
-class ExerciseProgressBarViewModel: ObservableObject {
-    @Published var countdownDuration: Double = 0 {
-        didSet {
-            print("DEBUG: Countdown duration \(countdownDuration)")
-            updateProgressFormatedCountDownDuration()
-        }
-    }
+class ExerciseProgressBarViewModel: ExerciseTimerViewModel, Bundleable {
     
     @Published var progressFormatedCountDownDuration: Double
     
-    var exerciseBundle: ExerciseBundle {
+    private var exerciseBundle: ExerciseBundle {
         didSet {
-            print("DEBUG: Bundle set")
-            self.countdownDuration = exerciseBundle.totalDuration
-            getInfo()
+            self.updateProgressFormatedCountDownDuration()
         }
     }
     
     init(bundle: ExerciseBundle) {
         self.progressFormatedCountDownDuration = 0 // Initialize it here
         self.exerciseBundle = bundle
-        updateProgressFormatedCountDownDuration() // Calculate it here
+        
+        super.init()
     }
     
     func updateProgressFormatedCountDownDuration() {
-        self.progressFormatedCountDownDuration = (countdownDuration / exerciseBundle.totalDuration) * 100
+        self.progressFormatedCountDownDuration = (super.countdownValue! / exerciseBundle.totalDuration) * 100
         print("FORM - \(self.progressFormatedCountDownDuration)")
     }
     
     func getInfo() {
-        print("DEBUG cd: \(countdownDuration)")
+        print("DEBUG cd: \(super.countdownValue)")
         print("DEBUG cd form: \(progressFormatedCountDownDuration)")
+    }
+    
+    func getExerciseBundle() -> ExerciseBundle {
+        return self.exerciseBundle
     }
 }

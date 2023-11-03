@@ -42,7 +42,7 @@ struct ExerciseProgressBarView: View {
                         Spacer()
                         ForEach(0..<10) { num in
                             Rectangle()
-                                .fill(Color(viewModel.countdownDuration > Double(num) * 0.1 ? .systemGreen : .systemRed))
+                                //.fill(Color(viewModel.super.countdownDuration > Double(num) * 0.1 ? .systemGreen : .systemRed))
                                 .padding(.vertical, 2)
                                 .frame(width: 1)
                             Spacer()
